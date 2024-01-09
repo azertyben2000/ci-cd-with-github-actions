@@ -57,7 +57,7 @@ jobs:
         id: meta
         uses: docker/metadata-action
         with:
-          images: azertyben2000/ci_ml_prod
+          images: azertyben2000/full_ci
       
       - name: Build and push Docker image
         uses: docker/build-push-action
