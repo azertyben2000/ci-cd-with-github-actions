@@ -1,6 +1,8 @@
 import unittest
 from app import app
 from selenium import webdriver
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -51,7 +53,7 @@ class FlaskTestCase(unittest.TestCase):
     
 class TestAppE2E(unittest.TestCase):
     def setup_method(self, method):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.vars = {}
   
     def teardown_method(self, method):
