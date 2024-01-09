@@ -2,7 +2,6 @@ import unittest
 from app import app
 from selenium import webdriver
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -53,15 +52,15 @@ class FlaskTestCase(unittest.TestCase):
     
 class TestAppE2E(unittest.TestCase):
     def setup_method(self, method):
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver = webdriver.Firefox()
         self.vars = {}
-  
+
     def teardown_method(self, method):
         self.driver.quit()
 
     def test_add_update_delete(self):
         # Launch your flask app first
-        self.driver.get("http://localhost:5000/")
+        self.driver.get("http://127.0.0.1:5000")
         
         # Add item
         self.driver.find_element(By.NAME, "item").click()
