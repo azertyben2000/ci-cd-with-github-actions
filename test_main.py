@@ -28,7 +28,6 @@ class FlaskTestCase(unittest.TestCase):
     def test_delete_item(self):
         
         # Test delete an item
-        self.test_add_item()
         response = self.app.get('/delete/0', follow_redirects=True)
         self.assertEqual(response.status_code, 200, "Response should be 200 OK")
 
